@@ -12,7 +12,7 @@ SELECT students.id, students.name as name, cohorts.name as cohort_name
 FROM students
 JOIN cohorts ON cohort_id = cohorts.id
 WHERE cohorts.name LIKE '%${process.argv[2]}%'
-LIMIT ${process.argv[3]} || 5;
+LIMIT ${process.argv[3] || 5};
 `)
 .then(res => {
   res.rows.forEach(user => {
